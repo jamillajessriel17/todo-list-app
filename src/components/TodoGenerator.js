@@ -5,7 +5,7 @@ const TodoGenerator = (props) => {
   const handleOnChange = (event) => {
     setTodoName(event.target.value);
   };
-  const addItem = () => {
+  const handleOnClick = () => {
     if (todoName === "") {
       alert("No input");
     } else {
@@ -22,7 +22,7 @@ const TodoGenerator = (props) => {
         placeholder="Enter todo here"
       />
 
-      <button onClick={addItem}>Add</button>
+      <button onClick={handleOnClick}>Add</button>
     </div>
   );
 };
