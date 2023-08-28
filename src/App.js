@@ -1,10 +1,11 @@
 import "./App.css";
+import TodoGroup from "./components/TodoGroup";
 import TodoItem from "./components/TodoItem";
 
 function App() {
   return (
     <div className="App">
-      <TodoItem itemName={"First todo Item"} />
+      <TodoGroup itemName={"Test"} />
     </div>
   );
 }
