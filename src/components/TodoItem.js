@@ -1,7 +1,7 @@
 const TodoItem = (props) => {
   return (
     <>
-      <div>HELLO WORLD{props.itemName}</div>
+      <div className="todoItem">{props.itemName}</div>
     </>
   );
 };
