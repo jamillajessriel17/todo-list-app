@@ -1,0 +1,17 @@
+.deleteButton {
+  border-style: none;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.todoItem {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
