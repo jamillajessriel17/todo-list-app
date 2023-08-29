@@ -15,7 +15,12 @@ const TodoItem = ({ todoItem }) => {
   return (
     <>
       <div className="todoItem">
-        <p onClick={done}> {todoItem.text}</p>
+        <p
+          onClick={done}
+          style={todoItem.done ? { "text-decoration": "line-through" } : {}}
+        >
+          {todoItem.text}
+        </p>
         <button className="deleteButton" onClick={onDeleteTodo}>
           x
         </button>
