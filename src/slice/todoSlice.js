@@ -16,7 +16,7 @@ const todoSlice = createSlice({
     },
     isDone: (state, action) => {
       const index = state.todos.findIndex((todo) => todo.id === action.payload);
-      state.todos[index].done = true;
+      state.todos[index].done = !state.todos[index].done;
     },
   },
 });
