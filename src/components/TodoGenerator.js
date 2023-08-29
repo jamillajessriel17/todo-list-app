@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../slice/todoSlice";
+import "../css/todoGenerator.css";
 
 const TodoGenerator = () => {
   const [todoName, setTodoName] = useState("");
@@ -11,7 +12,7 @@ const TodoGenerator = () => {
   const list = useSelector((state) => state.todo.todos);
   const generateId = list.length + 1;
   const handleOnClick = () => {
-    if (todoName === "") {
+    if (todoName.trim() === "") {
       alert("No input");
     } else {
       dispatch(addTodo({ id: generateId, text: todoName, done: false }));
@@ -27,7 +28,9 @@ const TodoGenerator = () => {
         placeholder="Enter todo here"
       />
 
-      <button onClick={handleOnClick}>Add</button>
+      <button className="addButton" onClick={handleOnClick}>
+        Add
+      </button>
     </div>
   );
 };
