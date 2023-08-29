@@ -4,14 +4,27 @@
   color: white;
   border-radius: 4px;
   cursor: pointer;
+  height: fit-content;
 }
 .todoItem {
-  padding: 10px;
+  user-select: none;
   display: flex;
-  justify-content: space-between;
   margin: auto;
-  width: 30%;
+  width: 40%;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+p {
+  width: fit-content;
+  margin-left: 10%;
+  text-align: start;
+  cursor: pointer;
+}
+.textArea {
+  width: 90%;
+}
+.buttonArea {
   text-align: center;
+  margin: auto;
+  width: 10%;
 }

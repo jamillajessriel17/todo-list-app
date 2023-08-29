@@ -5,7 +5,6 @@ const TodoGroup = () => {
   const todoList = useSelector((state) => state.todo.todos);
   return (
     <>
-      <h2>TODO LIST</h2>
       {todoList.map((element, index) => {
         return <TodoItem todoItem={element} key={index} />;
       })}
