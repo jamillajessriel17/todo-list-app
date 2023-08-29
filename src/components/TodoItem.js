@@ -1,7 +1,10 @@
-const TodoItem = (props) => {
+const TodoItem = ({ todoItem }) => {
   return (
     <>
-      <div className="todoItem">{props.itemName}</div>
+      <div className="todoItem">
+        {todoItem.text}
+        <button className="deleteButton">x</button>
+      </div>
     </>
   );
 };
