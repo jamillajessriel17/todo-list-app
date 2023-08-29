@@ -10,11 +10,17 @@ const todoSlice = createSlice({
       state.todos.push(action.payload);
     },
     deleteItem: (state, action) => {
-      state.todos = action.payload;
+      state.todos = [
+        ...state.todos.filter((item) => item.id !== action.payload),
+      ];
+    },
+    isDone: (state, action) => {
+      const index = state.todos.findIndex((todo) => todo.id === action.payload);
+      state.todos[index].done = true;
     },
   },
 });
 
-export const { addTodo, deleteItem } = todoSlice.actions;
+export const { addTodo, deleteItem, isDone } = todoSlice.actions;
 
 export default todoSlice.reducer;
