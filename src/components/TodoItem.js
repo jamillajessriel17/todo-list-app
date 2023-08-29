@@ -7,7 +7,10 @@ const TodoItem = ({ todoItem }) => {
   const id = todoItem.id;
   const dispatch = useDispatch();
   const onDeleteTodo = () => {
-    dispatch(deleteTodo(id));
+    const confirmDeletion = window.confirm("Are you sure you want to delete?");
+    if (confirmDeletion === true) {
+      dispatch(deleteTodo(id));
+    }
   };
   const done = () => {
     dispatch(isDone(id));
