@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../css/todoItem.css";
 import { deleteTodo } from "../slice/todoSlice";
 import { isDone } from "../slice/todoSlice";
