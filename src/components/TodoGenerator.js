@@ -9,13 +9,12 @@ const TodoGenerator = () => {
   const handleOnChange = (event) => {
     setTodoName(event.target.value);
   };
-  const list = useSelector((state) => state.todo.todos);
-  const generateId = list.length + 1;
+
   const handleOnClick = () => {
     if (todoName.trim() === "") {
       alert("No input");
     } else {
-      dispatch(addTodo({ id: generateId, text: todoName, done: false }));
+      dispatch(addTodo({ id: null, text: todoName, done: false }));
     }
     setTodoName("");
   };
