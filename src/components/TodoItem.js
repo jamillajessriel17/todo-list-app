@@ -16,9 +16,9 @@ const TodoItem = ({ todoItem }) => {
     dispatch(isDone(id));
   };
   const onToggleStyle = {
-    "text-decoration": "line-through",
+    textDecoration: "line-through",
     color: "gray",
-    "background-color": "#f0f1f2",
+    backgroundColor: "#f0f1f2",
   };
 
   return (
