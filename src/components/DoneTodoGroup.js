@@ -1,17 +1,21 @@
 import { useSelector } from "react-redux";
 import DoneTodoItem from "./DoneTodoItem";
+import { List } from "antd";
 
 const DoneTodoGroup = () => {
-  const todoList = useSelector((state) => state.todo.todos);
-  console.log(todoList);
+  const todoList = useSelector((state) =>
+    state.todo.todos.filter((item) => item.done)
+  );
   return (
     <>
-      <h2>Done Todo List</h2>
-      {todoList
-        .filter((item) => item.done === true)
-        .map((doneItem) => {
-          return <DoneTodoItem doneItem={doneItem} key={doneItem.id} />;
-        })}
+      <List
+        className="group"
+        size="small"
+        itemLayout="horizontal"
+        bordered
+        dataSource={todoList}
+        renderItem={(todoItem) => <DoneTodoItem doneItem={todoItem} />}
+      />
     </>
   );
 };

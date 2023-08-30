@@ -10,6 +10,7 @@ const DoneTodoList = () => {
   return (
     <>
       <div>
+        <h2>DONE LIST</h2>
         <DoneTodoGroup />
       </div>
     </>

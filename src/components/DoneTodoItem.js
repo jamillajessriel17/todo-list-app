@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useTodo } from "../hooks/useTodos";
+import { List } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const DoneTodoItem = (props) => {
   const { deleteTodo } = useTodo();
   const id = props.doneItem.id;
-
   const navigate = useNavigate();
   const onDeleteTodo = async () => {
     const confirmDeletion = window.confirm("Are you sure you want to delete?");
@@ -22,16 +23,10 @@ const DoneTodoItem = (props) => {
   };
   return (
     <>
-      <div className="todoItem" style={doneTaskStyle}>
-        <div className="textArea">
-          <p onClick={onClickDoneTodo}>{props.doneItem.text}</p>
-        </div>
-        <div className="buttonArea">
-          <button className="deleteButton" onClick={onDeleteTodo}>
-            x
-          </button>
-        </div>
-      </div>
+      <List.Item className="item" style={doneTaskStyle}>
+        <p onClick={onClickDoneTodo}> {props.doneItem.text}</p>
+        <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
+      </List.Item>
     </>
   );
 };

@@ -8,7 +8,7 @@ const TodoItemDetail = () => {
   );
   return (
     <div className="todo-detail">
-      <h1>Todo Item Detail</h1>
+      <h2>TODO ITEM DETAILS</h2>
       <div>Id: {todoTask?.id}</div>
       <div>Name: {todoTask?.text}</div>
     </div>
