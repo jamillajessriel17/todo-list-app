@@ -25,7 +25,7 @@ const DoneTodoItem = (props) => {
     <>
       <List.Item className="item" style={doneTaskStyle}>
         <p onClick={onClickDoneTodo}> {props.doneItem.text}</p>
-        <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
+        <DeleteOutlined onClick={onDeleteTodo} className="iconDeleteButton" />
       </List.Item>
     </>
   );

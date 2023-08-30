@@ -39,9 +39,12 @@ const TodoItem = (props) => {
         style={props.todoItem.done ? onToggleStyle : {}}
       >
         <p onClick={done}> {props.todoItem.text}</p>
-        <div>
-          <EditOutlined className="iconButton" onClick={onToggleShowModal} />
-          <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
+        <div className="control-area">
+          <EditOutlined
+            className="iconEditButton"
+            onClick={onToggleShowModal}
+          />
+          <DeleteOutlined onClick={onDeleteTodo} className="iconDeleteButton" />
         </div>
       </List.Item>
       <EditFormModal

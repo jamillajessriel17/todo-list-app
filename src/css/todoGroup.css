@@ -1,4 +1,15 @@
 .group {
   margin: auto;
-  width: 30%;
+  width: 500px;
+  background-color: white;
+}
+p {
+  font-size: large;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  .group {
+    margin: auto;
+    width: 80%;
+  }
 }

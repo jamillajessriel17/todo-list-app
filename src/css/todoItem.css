@@ -1,6 +1,14 @@
-.iconButton:hover {
+.iconDeleteButton {
+  margin-left: 15px;
+}
+.iconDeleteButton:hover {
   transition: 0.3s;
   color: red;
+  transform: scale(1.3);
+}
+.iconEditButton:hover {
+  transition: 0.3s;
+  color: #1890ff;
   transform: scale(1.3);
 }
 p {
