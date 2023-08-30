@@ -21,11 +21,16 @@ export const useTodo = () => {
     await todoApi.deleteTodoTask(id);
     loadTodos();
   };
+  const updateTextTodo = async (id, text) => {
+    await todoApi.updateTextTodoTask(id, text);
+    loadTodos();
+  };
 
   return {
     loadTodos,
     addTodo,
     toggleTodo,
     deleteTodo,
+    updateTextTodo,
   };
 };

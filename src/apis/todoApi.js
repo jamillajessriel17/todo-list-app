@@ -15,3 +15,7 @@ export const deleteTodoTask = (id) => {
 export const addTodoTask = (todoTask) => {
   return api.post("/todos", todoTask);
 };
+
+export const updateTextTodoTask = (id, text) => {
+  return api.put(`/todos/${id}`, text);
+};

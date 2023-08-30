@@ -1,12 +1,14 @@
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { List } from "antd";
 import { useNavigate } from "react-router-dom";
 import "../css/todoItem.css";
 import { useTodo } from "../hooks/useTodos";
+import { useState } from "react";
+import EditFormModal from "./EditFormModal";
 const TodoItem = (props) => {
   const { toggleTodo, deleteTodo } = useTodo();
   const id = props.todoItem.id;
-
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const onDeleteTodo = async () => {
     const confirmDeletion = window.confirm("Are you sure you want to delete?");
@@ -26,6 +28,9 @@ const TodoItem = (props) => {
     color: "gray",
     backgroundColor: "#f0f1f2",
   };
+  const onToggleShowModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
@@ -34,8 +39,16 @@ const TodoItem = (props) => {
         style={props.todoItem.done ? onToggleStyle : {}}
       >
         <p onClick={done}> {props.todoItem.text}</p>
-        <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
+        <div>
+          <EditOutlined className="iconButton" onClick={onToggleShowModal} />
+          <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
+        </div>
       </List.Item>
+      <EditFormModal
+        showModal={showModal}
+        closeModal={onToggleShowModal}
+        todoItem={props.todoItem}
+      />
     </>
   );
 };
