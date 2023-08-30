@@ -9,7 +9,7 @@ const TodoList = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
-      const response = await todoApi.getTodoTask();
+      const response = await todoApi.getTodoTasks();
       dispatch(loadTodo(response.data));
     };
     fetchData();

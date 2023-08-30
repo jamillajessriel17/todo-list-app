@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
 import "../css/todoItem.css";
-import { deleteTodo } from "../slice/todoSlice";
+import { deleteTodo, loadTodo } from "../slice/todoSlice";
 import { isDone } from "../slice/todoSlice";
 import { useNavigate } from "react-router-dom";
+import * as todoApi from "../apis/todoApi";
 
 const TodoItem = (props) => {
   const id = props.todoItem.id;
@@ -14,11 +15,13 @@ const TodoItem = (props) => {
       dispatch(deleteTodo(id));
     }
   };
-  const done = () => {
+  const done = async () => {
     if (props.isDone) {
       navigate("/done/" + id);
     } else {
-      dispatch(isDone(id));
+      await todoApi.updateTodoTask(id, { done: !props.todoItem.done });
+      const response = await todoApi.getTodoTasks();
+      dispatch(loadTodo(response.data));
     }
   };
   const onToggleStyle = {
