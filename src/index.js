@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HelpPage from "./pages/HelpPage";
-import TodoList from "./components/TodoList";
+import App from "./App";
+import DoneTodoList from "./components/DoneTodoList";
 import TodoItemDetail from "./components/TodoItemDetail";
+import TodoList from "./components/TodoList";
+import "./index.css";
 import ErrorPage from "./pages/ErrorPage";
+import HelpPage from "./pages/HelpPage";
+import reportWebVitals from "./reportWebVitals";
+import { store } from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/done",
-        element: <TodoList isDone={true} />,
+        element: <DoneTodoList />,
       },
       {
         path: "/done/:id",
