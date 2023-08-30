@@ -1,9 +1,8 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, List, Popover, message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "../css/todoItem.css";
 import { useTodo } from "../hooks/useTodos";
-import { useState } from "react";
 import EditFormModal from "./EditFormModal";
 const TodoItem = (props) => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -13,6 +12,12 @@ const TodoItem = (props) => {
       content: "Successfully Deleted!",
     });
   };
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Success!",
+    });
+  };
   const [open, setOpen] = useState(false);
   const handleOpenChange = () => {
     setOpen(true);
@@ -20,14 +25,10 @@ const TodoItem = (props) => {
   const { toggleTodo, deleteTodo } = useTodo();
   const id = props.todoItem.id;
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   const done = async () => {
-    if (props.isDone) {
-      navigate("/done/" + id);
-    } else {
-      toggleTodo(id, props.todoItem);
-    }
+    await toggleTodo(id, props.todoItem);
+    success();
   };
   const onToggleStyle = {
     textDecoration: "line-through",
@@ -57,9 +58,9 @@ const TodoItem = (props) => {
       </>
     );
   };
-  const onConfirmDelete = () => {
+  const onConfirmDelete = async () => {
     setOpen(false);
-    deleteTodo(id);
+    await deleteTodo(id);
     successDelete();
   };
   const onCancelDelete = () => {

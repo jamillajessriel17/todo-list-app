@@ -21,9 +21,9 @@ const DoneTodoItem = (props) => {
   const handleOpenChange = () => {
     setOpen(true);
   };
-  const onConfirmDelete = () => {
+  const onConfirmDelete = async () => {
     setOpen(false);
-    deleteTodo(id);
+    await deleteTodo(id);
     successDelete();
   };
   const onCancelDelete = () => {
