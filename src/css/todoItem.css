@@ -10,7 +10,7 @@ p {
 }
 
 p:hover {
-  color: rgb(3, 8, 70);
+  color: #1890ff;
   transition: 0.3s;
   transform: scale(1.005);
 }

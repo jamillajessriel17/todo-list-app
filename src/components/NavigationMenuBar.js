@@ -10,6 +10,8 @@ import "../css/navigationBar.css";
 
 const NavigationMenuBar = () => {
   const navigation = useNavigate();
+
+  const path = window.location.href.replace("http://localhost:3000", "");
   const menuItems = [
     {
       label: "Home",
@@ -27,7 +29,7 @@ const NavigationMenuBar = () => {
       icon: <QuestionCircleOutlined />,
     },
   ];
-  const [current, setCurrent] = useState("/");
+  const [current, setCurrent] = useState(path);
   const onClick = (item) => {
     setCurrent(item.key);
     navigation(item.key);
