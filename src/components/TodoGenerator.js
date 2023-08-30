@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useTodo } from "../hooks/useTodos";
 
 import "../css/todoGenerator.css";

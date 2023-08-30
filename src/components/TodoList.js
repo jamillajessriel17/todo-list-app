@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { useTodo } from "../hooks/useTodos";
 import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
-import { useTodo } from "../hooks/useTodos";
 const TodoList = (props) => {
   const { loadTodos } = useTodo();
   useEffect(() => {

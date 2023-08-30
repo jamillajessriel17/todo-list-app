@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
-import "../css/todoItem.css";
-import { loadTodo } from "../slice/todoSlice";
 import { useNavigate } from "react-router-dom";
-import * as todoApi from "../apis/todoApi";
+import "../css/todoItem.css";
 import { useTodo } from "../hooks/useTodos";
 
 const TodoItem = (props) => {
