@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTodo } from "../hooks/useTodos";
-import { UserOutlined } from "@ant-design/icons";
 
 import "../css/todoGenerator.css";
 import { Button, Input, message } from "antd";

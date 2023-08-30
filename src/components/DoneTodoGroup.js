@@ -1,13 +1,21 @@
 import { useSelector } from "react-redux";
 import DoneTodoItem from "./DoneTodoItem";
-import { List } from "antd";
+import { List, message } from "antd";
 
 const DoneTodoGroup = () => {
   const todoList = useSelector((state) =>
     state.todo.todos.filter((item) => item.done)
   );
+  const [messageApi, contextHolder] = message.useMessage();
+  const successDelete = () => {
+    messageApi.open({
+      type: "success",
+      content: "Successfully Deleted!",
+    });
+  };
   return (
     <>
+      {contextHolder}
       <List
         className="group"
         size="small"
