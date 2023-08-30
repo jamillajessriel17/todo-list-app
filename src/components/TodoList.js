@@ -11,6 +11,7 @@ const TodoList = (props) => {
     <>
       <h2>TODO LIST</h2>
       <TodoGroup isDone={props.isDone} />
+      <br />
       {<TodoGenerator />}
     </>
   );

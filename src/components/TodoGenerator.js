@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useTodo } from "../hooks/useTodos";
+import { UserOutlined } from "@ant-design/icons";
 
 import "../css/todoGenerator.css";
+import { Button, Input } from "antd";
 
 const TodoGenerator = () => {
   const [todoName, setTodoName] = useState("");
@@ -19,18 +21,18 @@ const TodoGenerator = () => {
     setTodoName("");
   };
   return (
-    <div className="container">
-      <input
-        type="text"
-        value={todoName}
+    <>
+      <Input
+        className="input"
         onChange={handleOnChange}
-        placeholder="Enter todo here"
+        size="large"
+        placeholder="What are you going todo today?"
+        value={todoName}
       />
-
-      <button className="addButton" onClick={handleOnClick}>
+      <Button type="primary" onClick={handleOnClick}>
         Add
-      </button>
-    </div>
+      </Button>
+    </>
   );
 };
 export default TodoGenerator;
