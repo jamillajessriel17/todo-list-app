@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const TodoItemDetail = () => {
   const { id } = useParams();
   const todoTask = useSelector((state) =>
-    state.todo.todos.find((task) => task.id === parseInt(id))
+    state.todo.todos.find((task) => task.id === id)
   );
   return (
     <div className="todo-detail">
