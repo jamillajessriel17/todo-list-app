@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
-import TodoItem from "./TodoItem";
 import { List } from "antd";
+import { useSelector } from "react-redux";
 import "../css/todoGroup.css";
+import TodoItem from "./TodoItem";
 
 const TodoGroup = (props) => {
   const todoList = useSelector((state) => state.todo.todos);

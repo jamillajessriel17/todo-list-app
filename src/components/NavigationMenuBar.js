@@ -1,6 +1,6 @@
 import {
-  HomeOutlined,
   FileDoneOutlined,
+  HomeOutlined,
   QuestionCircleOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";

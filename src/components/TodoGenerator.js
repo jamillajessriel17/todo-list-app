@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useTodo } from "../hooks/useTodos";
 
-import "../css/todoGenerator.css";
 import { Button, Input, message } from "antd";
+import "../css/todoGenerator.css";
 
 const TodoGenerator = () => {
   const [messageApi, contextHolder] = message.useMessage();
