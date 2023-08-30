@@ -29,9 +29,12 @@ const TodoItem = (props) => {
 
   return (
     <>
-      <List.Item style={props.todoItem.done ? onToggleStyle : {}}>
-        <List.Item.Meta title={props.todoItem.text} onClick={done} />
-        <DeleteOutlined onClick={onDeleteTodo} />
+      <List.Item
+        className="item"
+        style={props.todoItem.done ? onToggleStyle : {}}
+      >
+        <p onClick={done}> {props.todoItem.text}</p>
+        <DeleteOutlined onClick={onDeleteTodo} className="iconButton" />
       </List.Item>
     </>
   );

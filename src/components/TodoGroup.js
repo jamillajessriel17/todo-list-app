@@ -1,19 +1,14 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import { List } from "antd";
+import "../css/todoGroup.css";
 
 const TodoGroup = (props) => {
   const todoList = useSelector((state) => state.todo.todos);
   return (
-    // <>
-    //   {todoList.map((element, index) => {
-    //     return (
-    //       <TodoItem todoItem={element} key={index} isDone={props.isDone} />
-    //     );
-    //   })}
-    // </>
     <>
       <List
+        className="group"
         size="small"
         itemLayout="horizontal"
         bordered
