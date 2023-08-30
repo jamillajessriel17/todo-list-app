@@ -1,5 +1,5 @@
+import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
-import TodoList from "./components/TodoList";
 
 function App() {
   return (
@@ -8,18 +8,18 @@ function App() {
         <nav>
           <ul>
             <li>
-              <a href={"/"}>HOME</a>
+              <NavLink to={"/"}>HOME</NavLink>
             </li>
             <li>
-              <a href={"/done"}>Done List</a>
+              <NavLink to={"/done"}>Done List</NavLink>
             </li>
             <li>
-              <a href={"/help"}>Help</a>
+              <NavLink to={"/help"}>Help</NavLink>
             </li>
           </ul>
         </nav>
       </div>
-      <TodoList />
+      <Outlet></Outlet>
     </div>
   );
 }
