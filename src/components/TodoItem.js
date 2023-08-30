@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import "../css/todoItem.css";
 import { deleteTodo, loadTodo } from "../slice/todoSlice";
-import { isDone } from "../slice/todoSlice";
 import { useNavigate } from "react-router-dom";
 import * as todoApi from "../apis/todoApi";
 
@@ -9,10 +8,12 @@ const TodoItem = (props) => {
   const id = props.todoItem.id;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onDeleteTodo = () => {
+  const onDeleteTodo = async () => {
     const confirmDeletion = window.confirm("Are you sure you want to delete?");
     if (confirmDeletion === true) {
-      dispatch(deleteTodo(id));
+      await todoApi.deleteTodoTask(id);
+      const response = await todoApi.getTodoTasks();
+      dispatch(loadTodo(response.data));
     }
   };
   const done = async () => {
