@@ -1,24 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
+import NavigationMenuBar from "./components/NavigationMenuBar";
 
 function App() {
   return (
     <div className="App">
-      <div className="nav-bar">
-        <nav>
-          <ul>
-            <li>
-              <NavLink to={"/"}>HOME</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/done"}>Done List</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/help"}>Help</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <NavigationMenuBar />
       <Outlet></Outlet>
     </div>
   );

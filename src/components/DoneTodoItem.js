@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useTodo } from "../hooks/useTodos";
 
 const DoneTodoItem = (props) => {
-  const { toggleTodo, deleteTodo } = useTodo();
+  const { deleteTodo } = useTodo();
   const id = props.doneItem.id;
 
   const navigate = useNavigate();

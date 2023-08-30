@@ -1,13 +1,12 @@
-import { useDispatch } from "react-redux";
+import { DeleteOutlined } from "@ant-design/icons";
+import { List } from "antd";
 import { useNavigate } from "react-router-dom";
 import "../css/todoItem.css";
 import { useTodo } from "../hooks/useTodos";
-
 const TodoItem = (props) => {
   const { toggleTodo, deleteTodo } = useTodo();
   const id = props.todoItem.id;
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const onDeleteTodo = async () => {
     const confirmDeletion = window.confirm("Are you sure you want to delete?");
@@ -30,19 +29,10 @@ const TodoItem = (props) => {
 
   return (
     <>
-      <div
-        className="todoItem"
-        style={props.todoItem.done ? onToggleStyle : {}}
-      >
-        <div className="textArea">
-          <p onClick={done}>{props.todoItem.text}</p>
-        </div>
-        <div className="buttonArea">
-          <button className="deleteButton" onClick={onDeleteTodo}>
-            x
-          </button>
-        </div>
-      </div>
+      <List.Item style={props.todoItem.done ? onToggleStyle : {}}>
+        <List.Item.Meta title={props.todoItem.text} onClick={done} />
+        <DeleteOutlined onClick={onDeleteTodo} />
+      </List.Item>
     </>
   );
 };
