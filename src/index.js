@@ -8,6 +8,7 @@ import { store } from "./store/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HelpPage from "./pages/HelpPage";
 import TodoList from "./components/TodoList";
+import TodoItemDetail from "./components/TodoItemDetail";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/help",
         element: <HelpPage />,
+      },
+      {
+        path: "/done",
+        element: <TodoList isDone={true} />,
+      },
+      {
+        path: "/done/:id",
+        element: <TodoItemDetail />,
       },
     ],
   },
