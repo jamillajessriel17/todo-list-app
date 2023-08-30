@@ -3,25 +3,40 @@ import { useTodo } from "../hooks/useTodos";
 import { UserOutlined } from "@ant-design/icons";
 
 import "../css/todoGenerator.css";
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 
 const TodoGenerator = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const [todoName, setTodoName] = useState("");
   const { addTodo } = useTodo();
   const handleOnChange = (event) => {
     setTodoName(event.target.value);
   };
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Successfully Added!",
+    });
+  };
+  const warning = () => {
+    messageApi.open({
+      type: "warning",
+      content: "No Input!",
+    });
+  };
 
   const handleOnClick = async () => {
     if (todoName.trim() === "") {
-      alert("No input");
+      warning();
     } else {
       addTodo(todoName);
+      success();
     }
     setTodoName("");
   };
   return (
     <>
+      {contextHolder}
       <Input
         className="input"
         onChange={handleOnChange}
