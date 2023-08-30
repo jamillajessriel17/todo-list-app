@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../slice/todoSlice";
+import { addTodo, loadTodo } from "../slice/todoSlice";
 import "../css/todoGenerator.css";
+import * as todoApi from "../apis/todoApi";
 
 const TodoGenerator = () => {
   const [todoName, setTodoName] = useState("");
@@ -10,11 +11,16 @@ const TodoGenerator = () => {
     setTodoName(event.target.value);
   };
 
-  const handleOnClick = () => {
+  const handleOnClick = async () => {
     if (todoName.trim() === "") {
       alert("No input");
     } else {
-      dispatch(addTodo({ id: null, text: todoName, done: false }));
+      await todoApi.addTodoTask({ text: todoName });
+      await todoApi.getTodoTasks().then((response) => {
+        dispatch(loadTodo(response.data));
+      });
+
+      // dispatch(addTodo({ id: null, text: todoName, done: false }));
     }
     setTodoName("");
   };
