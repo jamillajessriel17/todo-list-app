@@ -9,11 +9,6 @@ const TodoItemDetail = () => {
     state.todo.todos.find((task) => task.id === id)
   );
   return (
-    // <div className="todo-detail">
-    //   <h2>TODO ITEM DETAILS</h2>
-    //   <div>Id: {todoTask?.id}</div>
-    //   <div>Name: {todoTask?.text}</div>
-    // </div>
     <>
       <h2>TODO DETAILS</h2>
       <Card
