@@ -4,9 +4,8 @@ import { useTodo } from "../hooks/useTodos";
 
 const DoneTodoList = () => {
   const { loadTodos } = useTodo();
-  useEffect(() => {
-    loadTodos();
-  });
+  loadTodos();
+  useEffect(() => {});
   return (
     <>
       <div>
